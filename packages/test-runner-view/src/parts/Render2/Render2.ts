@@ -8,5 +8,5 @@ export const render2 = (id: number, diffResult: readonly number[]): readonly unk
   if (diffResult.length === 0) {
     return []
   }
-  return [[ViewletCommand.SetDom2, id, getTestRunnerVirtualDom()]]
+  return [[ViewletCommand.SetDom2, id, getTestRunnerVirtualDom(newState.testFiles)]]
 }
