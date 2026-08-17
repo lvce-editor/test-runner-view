@@ -1,0 +1,30 @@
+{
+  "name": "@lvce-editor/test-runner-view-monorepo",
+  "version": "0.0.0-dev",
+  "license": "MIT",
+  "author": "Lvce Editor",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "node packages/build/src/build.ts",
+    "build:watch": "npm exec --workspace=packages/build -- esbuild --format=esm --bundle --external:electron --external:node:buffer --external:node:worker_threads --external:ws --watch ../test-runner-view/src/testRunnerWorkerMain.ts --outfile=../../.tmp/dist/dist/testRunnerWorkerMain.js",
+    "format": "prettier --write .",
+    "lint": "eslint . && prettier --check . && knip --no-config-hints",
+    "test": "npm test --workspaces --if-present",
+    "type-check": "tsc -b"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 170
+  },
+  "devDependencies": {
+    "@lvce-editor/eslint-config": "^18.4.0",
+    "eslint": "^10.8.1",
+    "knip": "^6.32.2",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3"
+  }
+}

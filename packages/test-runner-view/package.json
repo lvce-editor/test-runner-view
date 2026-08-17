@@ -1,0 +1,55 @@
+{
+  "name": "@lvce-editor/test-runner-view",
+  "version": "0.0.0-dev",
+  "description": "Builtin test runner view for LVCE Editor",
+  "keywords": [
+    "lvce-editor",
+    "test-runner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvce-editor/test-runner-view.git"
+  },
+  "license": "MIT",
+  "author": "Lvce Editor",
+  "type": "module",
+  "main": "src/testRunnerWorkerMain.ts",
+  "scripts": {
+    "test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit"
+  },
+  "jest": {
+    "injectGlobals": false,
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    },
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.4.1",
+    "@lvce-editor/constants": "^5.28.0",
+    "@lvce-editor/rpc": "^6.18.0",
+    "@lvce-editor/rpc-registry": "^9.51.0",
+    "@lvce-editor/viewlet-registry": "^5.11.0",
+    "@lvce-editor/virtual-dom-worker": "^11.12.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.12"
+  }
+}
