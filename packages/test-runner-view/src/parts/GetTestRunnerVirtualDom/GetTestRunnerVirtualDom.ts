@@ -3,11 +3,13 @@ import { mergeClassNames, VirtualDomElements } from '@lvce-editor/virtual-dom-wo
 import type { TestFile } from '../TestRunnerState/TestRunnerState.ts'
 import { getTestFileVirtualDom } from '../GetTestFileVirtualDom/GetTestFileVirtualDom.ts'
 
+const testRunnerClassName = mergeClassNames('Viewlet', 'TestRunner', 'Tree')
+
 export const getTestRunnerVirtualDom = (testFiles: readonly TestFile[]): readonly VirtualDomNode[] => {
   return [
     {
       childCount: testFiles.length,
-      className: mergeClassNames('Viewlet', 'TestRunner', 'Tree'),
+      className: testRunnerClassName,
       type: VirtualDomElements.Div,
     },
     ...testFiles.flatMap(getTestFileVirtualDom),

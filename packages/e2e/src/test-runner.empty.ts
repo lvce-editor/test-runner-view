@@ -12,5 +12,6 @@ export const test: Test = async ({ expect, FileSystem, Locator, SideBar, Workspa
 
   const testRunner = Locator('.TestRunner')
   await expect(testRunner).toBeVisible()
-  await expect(testRunner.locator('.TestRunnerItem')).toHaveCount(0)
+  const testRunnerItems = testRunner.locator('.TestRunnerItem')
+  await expect(testRunnerItems).toHaveCount(0)
 }
