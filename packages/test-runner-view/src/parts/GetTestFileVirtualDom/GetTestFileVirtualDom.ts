@@ -15,12 +15,15 @@ const playIcon: VirtualDomNode = {
   type: VirtualDomElements.I,
 }
 
+const testFileLabelClassName = mergeClassNames('Label', 'Grow')
+const testFileRunButtonClassName = mergeClassNames('InlineButton', 'TestRunnerRunButton')
+
 export const getTestFileVirtualDom = (testFile: TestFile): readonly VirtualDomNode[] => {
   return [
     testFileRow,
     {
       childCount: 1,
-      className: mergeClassNames('Label', 'Grow'),
+      className: testFileLabelClassName,
       title: testFile.uri,
       type: VirtualDomElements.Span,
     },
@@ -28,7 +31,7 @@ export const getTestFileVirtualDom = (testFile: TestFile): readonly VirtualDomNo
     {
       ariaLabel: `Run ${testFile.name}`,
       childCount: 1,
-      className: mergeClassNames('InlineButton', 'TestRunnerRunButton'),
+      className: testFileRunButtonClassName,
       name: testFile.uri,
       onClick: DomEventListenerFunctions.HandleRun,
       type: VirtualDomElements.Button,
