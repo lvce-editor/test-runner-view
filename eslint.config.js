@@ -15,4 +15,10 @@ export default defineConfig([
   ...config.recommendedTsconfig,
   ...config.recommendedVirtualDom,
   ...config.recommendedVirtualDomStrict,
+  {
+    files: ['**/.nvmrc'],
+    rules: {
+      'nvmrc/valid-version': ['error', { maximumVersion: '26.12.0' }],
+    },
+  },
 ])
