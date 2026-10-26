@@ -18,7 +18,7 @@ export default defineConfig([
   {
     files: ['**/.nvmrc'],
     rules: {
-      'nvmrc/valid-version': ['error', { maximumVersion: '26.12.0' }],
+      'nvmrc/valid-version': ['error', { maximumVersion: '26.12.1' }],
     },
   },
 ])
